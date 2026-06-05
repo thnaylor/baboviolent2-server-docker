@@ -1,0 +1,17 @@
+---
+services:
+  baboviolent2:
+    image: ghcr.io/thnaylor/baboviolent2:edge
+    restart: unless-stopped
+    container_name: baboviolent2
+    stop_grace_period: 30s
+    ports:
+      - '3333:3333/tcp'
+      - '3333:3333/udp'
+    environment:
+      PUID: 1000
+      PGID: 1000
+    env_file:
+      - .env
+    volumes:
+      - ./server-files:/home/babo/server-files
