@@ -2,7 +2,7 @@
 # shellcheck source=scripts/functions.sh
 source "/home/babo/server/functions.sh"
 
-cd /home/babo/server-files || exit
+cd /home/babo/server-files/Content || exit
 
 # --- Server identity ---
 GAME_MODE="${GAME_MODE:-FFA}"
@@ -178,4 +178,4 @@ sed -i "s|sv_photonType .*|sv_photonType ${PHOTON_TYPE}|"                       
 LogSuccess "Configuration complete"
 LogAction "Launching server"
 
-exec su babo -c "/home/babo/server-files/BaboViolentDedicated server"
+exec su babo -c "cd /home/babo/server-files/Content && /home/babo/server-files/BaboViolentDedicated server"
