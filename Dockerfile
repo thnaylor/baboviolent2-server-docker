@@ -1,3 +1,5 @@
+FROM ghcr.io/thnaylor/baboviolent2:edge AS game-files
+
 FROM ubuntu:24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -21,8 +23,8 @@ ENV HOME=/home/babo \
     PUID=1000 \
     PGID=1000
 
-COPY build-linux/BaboViolentDedicated /home/babo/server-files/BaboViolentDedicated
-COPY Content/ /home/babo/server-files/Content/
+COPY --from=game-files /app/BaboViolentDedicated /home/babo/server-files/BaboViolentDedicated
+COPY --from=game-files /app/Content/ /home/babo/server-files/Content/
 COPY scripts/ /home/babo/server/
 COPY branding /branding
 
