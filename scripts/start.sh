@@ -6,6 +6,7 @@ cd /home/babo/server-files/Content || exit
 
 # --- Server identity ---
 GAME_MODE="${GAME_MODE:-FFA}"
+GAMETYPE_ROTATION="${GAMETYPE_ROTATION:-}"
 SERVER_NAME="${SERVER_NAME:-BaboViolent 2 Server}"
 MAX_PLAYERS="${MAX_PLAYERS:-16}"
 MAX_PLAYERS_IN_GAME="${MAX_PLAYERS_IN_GAME:-0}"
@@ -134,6 +135,9 @@ sed -i "s|set sv_enableKnives .*|set sv_enableKnives ${ENABLE_KNIVES}|"         
 sed -i "s|set sv_enableMinibot .*|set sv_enableMinibot ${ENABLE_MINIBOT}|"                         "$SCRIPT"
 sed -i "s|set sv_enableNuclear .*|set sv_enableNuclear ${ENABLE_NUCLEAR}|"                         "$SCRIPT"
 sed -i "s|set sv_enablePhotonRifle .*|set sv_enablePhotonRifle ${ENABLE_PHOTON_RIFLE}|"            "$SCRIPT"
+if [ -n "${GAMETYPE_ROTATION}" ]; then
+    sed -i "s|set sv_gametypeList .*|set sv_gametypeList \"${GAMETYPE_ROTATION}\"|"               "$SCRIPT"
+fi
 
 LogAction "Patching bv2.cfg"
 

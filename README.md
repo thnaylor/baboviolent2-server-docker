@@ -64,6 +64,7 @@ docker run -d \
 | PUID | 1000 | User ID to run the server process as |
 | PGID | 1000 | Group ID to run the server process as |
 | GAME_MODE | FFA | Game mode: FFA, CTF, TDM, or Champion |
+| GAMETYPE_ROTATION | | Space-separated gametype IDs to rotate (e.g. `0 1 2`). Empty = fixed GAME_MODE |
 | SERVER_NAME | BaboViolent 2 Server | Display name for your server |
 | MAX_PLAYERS | 16 | Maximum number of simultaneous players |
 | MAX_PLAYERS_IN_GAME | 0 | Max players in-game (0 = no spectator limit) |
